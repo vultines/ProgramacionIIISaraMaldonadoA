@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Ejercicio1Consola
+{
+    class Program
+    {
+        class ListaNombres
+        {
+            
+            public void CargarNombres()
+            {
+                Console.WriteLine("Cuantas personas a registrar?");
+
+                int n = int.Parse(Console.ReadLine());
+                string[] nombres = new string[n];
+
+                int[] edad = new int[n];
+
+                for (int i = 0; i <nombres.Length; i++)
+                {
+                    Console.WriteLine("Nombre de la persona #" + (i+1));
+                    nombres[i] = Console.ReadLine();
+                    Console.WriteLine("Edad?");
+                    edad[i] = int.Parse(Console.ReadLine());
+                }
+
+                int min = edad[0];
+                for (int m = 0; m <edad.Length; m++)
+                {
+                    if (edad[m] < min)
+                    {
+                        min = edad[m];
+                    }
+                }
+                Console.WriteLine("Menor edad:");
+                Console.WriteLine( min);
+
+                Array.Sort(edad);
+                Console.WriteLine("Personas Registradas Ordenadas por Edad:");
+                for (int j = 0; j < edad.Length; j++)
+                {
+                    Console.WriteLine( edad[j] + " años");
+                }
+
+                Array.Sort(nombres);
+                Console.WriteLine("Personas Registradas Ordenadas por Nombre:");
+                for (int j = 0; j < nombres.Length; j++)
+                {
+                    Console.WriteLine(nombres[j]);
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            ListaNombres lista = new ListaNombres();
+            lista.CargarNombres();
+
+            Console.ReadKey();
+        }
+    }
+}
